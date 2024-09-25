@@ -1,11 +1,23 @@
-Feature: Herramienta de seguimiento de tareas en tiempo real
+Feature: US14 - Herramienta de seguimiento de tareas en tiempo real
 
-  Scenario: Actualización del estado de una tarea en tiempo real
-    Given que un proyecto está activo
-    When un miembro del equipo actualiza el estado de una tarea
-    Then la herramienta de seguimiento mostrará el cambio en tiempo real a todos los usuarios
+  Scenario: Mostrar cambios en el estado de una tarea en tiempo real
+    Given que la herramienta de seguimiento contiene [tareas activas]
+    When un miembro del equipo actualiza el estado de la tarea basado en [nueva información]
+    Then el sistema muestra el cambio en tiempo real para todos los usuarios.
 
-  Scenario: Visualización del tablero con el estado de las tareas
-    Given que un miembro del equipo quiere ver el progreso general del proyecto
-    When accede a la herramienta de seguimiento de tareas
-    Then podrá visualizar un tablero actualizado con el estado actual de todas las tareas
+    Examples:
+      | [tareas activas]     | [nueva información]           |
+      | Tarea_001            | cambio de estado a "En progreso" |
+      | Tarea_002            | cambio de estado a "Completada"  |
+      | Tarea_003            | cambio de prioridad a "Alta"     |
+
+  Scenario: Visualización del tablero actualizado
+    Given que el tablero de seguimiento contiene [tareas activas]
+    When el miembro del equipo accede al tablero actualizado
+    Then el sistema muestra el estado actual de todas las tareas en tiempo real.
+
+    Examples:
+      | [tareas activas]     | [estado de las tareas]         |
+      | Tarea_001            | En progreso                    |
+      | Tarea_002            | Completada                     |
+      | Tarea_003            | Pendiente                      |
