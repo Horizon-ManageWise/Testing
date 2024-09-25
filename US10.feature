@@ -8,4 +8,4 @@ Feature: Sincronización con herramientas externas
     Scenario: Reflejo de cambios en tiempo real
         Given que la sincronización está activa
         When se haga un cambio en las herramientas externas o en la plataforma
-        Then dicho cambio se reflejará en ambas partes en tiempo real
+        Then dicho cambio se reflejará en ambas partes en tiempo real.
