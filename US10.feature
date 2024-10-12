@@ -1,16 +1,15 @@
-Feature: Estimación de Esfuerzo en User Stories
+Feature: Interacción con el Timeline para Invitar Miembros
+  Scenario: Botón para invitar miembros
+    Given que el Scrum Master quiere añadir nuevos miembros
+    When hace clic en "Invitar miembros"
+    Then se abrirá un formulario para enviar invitaciones
 
-  Scenario: Visualización de estimaciones de esfuerzo
-    Given hay User Stories en el timeline
-    When el Desarrollador visualice una User Story
-    Then debe ver la estimación de esfuerzo asociada en horas o días
+  Scenario: Confirmación de invitaciones enviadas
+    Given que el Scrum Master ha enviado invitaciones
+    When las invitaciones se envían correctamente
+    Then se mostrará un mensaje de confirmación
 
-  Scenario: Actualización de estimaciones de esfuerzo
-    Given una User Story tiene una estimación de esfuerzo
-    When el Desarrollador decida actualizar la estimación
-    Then debe poder modificar la estimación y guardarla
-
-  Scenario: Cálculo total de esfuerzo en el sprint
-    Given hay varias User Stories en un sprint
-    When se visualicen las User Stories
-    Then debe aparecer el total de esfuerzo estimado para el sprint
+  Scenario: Visualización de miembros invitados
+    Given que el Scrum Master ha enviado invitaciones
+    When vuelve al timeline
+    Then debe ver la lista de miembros invitados en la sección correspondiente
