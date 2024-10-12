@@ -1,16 +1,15 @@
-Feature: Adición de una columna para un nuevo sprint en el Timeline
+Feature: Estimación de Esfuerzo en User Stories
+  Scenario: Visualización de estimaciones de esfuerzo
+    Given que hay User Stories en el timeline
+    When el Desarrollador visualiza una User Story
+    Then debe ver la estimación de esfuerzo asociada (en horas/días)
 
-  Scenario: Agregar una columna para un nuevo sprint
-    Given el Product Owner necesita añadir un nuevo sprint
-    When seleccione la opción para agregar una columna en el timeline
-    Then aparecerá una nueva columna para agregar User Stories
+  Scenario: Actualización de estimaciones de esfuerzo
+    Given que una User Story tiene una estimación de esfuerzo
+    When el Desarrollador decide actualizarla
+    Then debe poder modificar la estimación y guardarla
 
-  Scenario: Mover User Stories entre columnas
-    Given hay User Stories en el timeline
-    When el Product Owner arrastre una User Story de una columna a otra
-    Then se actualizará automáticamente su ubicación en el sprint correspondiente
-
-  Scenario: Información de duración del sprint
-    Given el Product Owner está creando un nuevo sprint
-    When lo añada al timeline
-    Then deberá especificar la duración en días
+  Scenario: Cálculo total de esfuerzo en el sprint
+    Given que hay varias User Stories en un sprint
+    When se visualizan las User Stories
+    Then debe aparecer el total de esfuerzo estimado para el sprint
