@@ -1,16 +1,16 @@
-Feature: Interacción con el Timeline para Invitar Miembros
+Feature: Visualización de Estadísticas del Rendimiento del Equipo
 
-  Scenario: Botón para invitar miembros
-    Given el Scrum Master quiere añadir nuevos miembros
-    When haga clic en "Invitar miembros"
-    Then se abrirá un formulario para enviar invitaciones
+  Scenario: Visualización de estadísticas del equipo
+    Given que el Product Owner está en la sección de estadísticas
+    When selecciona la opción para ver estadísticas
+    Then deberá visualizar un panel con las estadísticas de rendimiento del equipo, incluyendo la cantidad de User Stories completadas y pendientes
 
-  Scenario: Confirmación de invitaciones enviadas
-    Given el Scrum Master ha enviado invitaciones
-    When las invitaciones se envíen correctamente
-    Then se mostrará un mensaje de confirmación
+  Scenario: Estado de las User Stories con colores
+    Given que hay User Stories en la sección de estadísticas
+    When el Product Owner visualiza las User Stories
+    Then deberá verlas representadas con colores: verde para las completadas (Done) y rojo para las que están en progreso
 
-  Scenario: Visualización de miembros invitados
-    Given el Scrum Master ha enviado invitaciones
-    When vuelva al timeline
-    Then debe ver la lista de miembros invitados en la sección correspondiente
+  Scenario: Detalles de las User Stories al pasar el cursor
+    Given que el Product Owner está revisando el panel de estadísticas
+    When pasa el cursor sobre una User Story
+    Then se mostrará un cuadro de información con los detalles relevantes, incluyendo el número de historias de usuarios que falta completar o que ya estén completas
